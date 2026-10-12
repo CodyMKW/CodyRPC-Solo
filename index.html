@@ -82,9 +82,9 @@ function fromWorker(w){
   cfg.variables=Array.isArray(s.customVariables)?s.customVariables:cfg.variables;
 }
 async function pull(){
+  if(!cfg.userId){setSync('','Authorize Discord first');log('Not pulled: no user ID set yet.');return;}
   try{
-    var url=WORKER_URL+'/api/config';
-    if(cfg.userId) url += '?userId='+encodeURIComponent(cfg.userId);
+    var url=WORKER_URL+'/api/config?userId='+encodeURIComponent(cfg.userId);
     var r=await fetch(url);
     if(!r.ok)throw new Error('HTTP '+r.status);
     var d=await r.json();
@@ -95,8 +95,9 @@ async function pull(){
 async function push(){
   var token=getToken();
   if(!token){setSync('bad','Admin token missing');log('Save skipped: no admin token set.');return 'Saved locally only — add your admin token to sync to KV.'}
+  if(!cfg.userId){setSync('bad','Authorize Discord first');log('Save skipped: no Discord user ID associated yet.');return 'Please authorize Discord first before saving to KV.'}
   try{
-    var r=await fetch(WORKER_URL+'/api/config',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token, ...(cfg.userId ? {'X-Discord-User-Id': cfg.userId} : {})},body:JSON.stringify(toWorker())});
+    var r=await fetch(WORKER_URL+'/api/config',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token,'X-Discord-User-Id': cfg.userId},body:JSON.stringify(toWorker())});
     var d={};try{d=await r.json()}catch(_){}
     if(!r.ok)throw new Error(d.error||'HTTP '+r.status);
     if(d.userId && !cfg.userId) { cfg.userId = d.userId; persist(); }
@@ -118,7 +119,15 @@ function gatherGeneral(){['nsaId','friendCode','switchLogo'].forEach(function(k)
 function gatherPresence(){['islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){cfg[k]=$(k).value.trim()});document.querySelectorAll('[data-setting]').forEach(function(e){cfg.settings[e.dataset.setting]=e.checked})}
 var lastDiscord={linked:false};
 function checkDiscordStatus(){var d=lastDiscord;if(d.linked){var bits=['Linked'+(d.user?' as '+d.user:'')];if(d.error)bits.push('error: '+d.error);else if(d.activity)bits.push('showing '+d.activity);else bits.push('no activity (offline)');$('rpcStat').textContent=d.error?'Linked · error':'Linked';$('checkDiscord').textContent=bits.join(' · ');$('checkDiscordDot').className='dot '+(d.error?'bad':'good')}else{$('rpcStat').textContent='Not authorized';$('checkDiscord').textContent='Not authorized';$('checkDiscordDot').className='dot bad'}}
-async function loadDiscordStatus(){try{var url=WORKER_URL+'/api/discord/status';if(cfg.userId) url += '?userId='+encodeURIComponent(cfg.userId);var r=await fetch(url);lastDiscord=await r.json();if(lastDiscord.userId && !cfg.userId){cfg.userId=lastDiscord.userId;persist()}checkDiscordStatus()}catch(e){log('Could not load Discord status: '+e.message)}}
+async function loadDiscordStatus(){
+  if(!cfg.userId) { checkDiscordStatus(); return; }
+  try{
+    var r=await fetch(WORKER_URL+'/api/discord/status?userId='+encodeURIComponent(cfg.userId));
+    lastDiscord=await r.json();
+    if(lastDiscord.userId && !cfg.userId){cfg.userId=lastDiscord.userId;persist()}
+    checkDiscordStatus();
+  }catch(e){log('Could not load Discord status: '+e.message)}
+}
 async function adminPost(path,body){
   var token=getToken();
   if(!token)throw new Error('Set your admin token first.');
@@ -133,7 +142,7 @@ async function adminPost(path,body){
 }
 function b64url(buf){var s='',b=new Uint8Array(buf);for(var i=0;i<b.length;i++)s+=String.fromCharCode(b[i]);return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 function redirectUri(){return window.location.origin+window.location.pathname.replace(/\/$/,'')}
-async function handleOAuthCallback(){var code=new URLSearchParams(window.location.search).get('code');if(!code)return;window.history.replaceState({},document.title,window.location.pathname);var saved=null;try{saved=JSON.parse(localStorage.getItem('codyrpc-pkce')||'null');localStorage.removeItem('codyrpc-pkce')}catch(e){}if(!saved){log('OAuth callback received but no PKCE verifier was found. Authorize again.');return}log('Exchanging Discord authorization code…');try{var d=await adminPost('/api/discord/exchange',{code:code,codeVerifier:saved.v,redirectUri:saved.r});if(d.userId){cfg.userId=d.userId;persist()}log('Discord linked'+(d.user?' as '+d.user:'')+'. First sync: '+JSON.stringify(d.sync));alert('Discord linked! Your presence now updates automatically.')}catch(e){log('Discord link failed: '+e.message);alert('Discord link failed: '+e.message)}await loadDiscordStatus()}
+async function handleOAuthCallback(){var code=new URLSearchParams(window.location.search).get('code');if(!code)return;window.history.replaceState({},document.title,window.location.pathname);var saved=null;try{saved=JSON.parse(localStorage.getItem('codyrpc-pkce')||'null');localStorage.removeItem('codyrpc-pkce')}catch(e){}if(!saved){log('OAuth callback received but no PKCE verifier was found. Authorize again.');return}log('Exchanging Discord authorization code…');try{var d=await adminPost('/api/discord/exchange',{code:code,codeVerifier:saved.v,redirectUri:saved.r});if(d.userId){cfg.userId=d.userId;persist()}log('Discord linked'+(d.user?' as '+d.user:'')+'. First sync: '+JSON.stringify(d.sync));alert('Discord linked! Your presence now updates automatically.')}catch(e){log('Discord link failed: '+e.message);alert('Discord link failed: '+e.message)}await loadDiscordStatus();pull()}
 function renderLists(){[['overrideList',cfg.overrides,'gameName','override'],['variableList',cfg.variables,'key','variable'],['presetList',cfg.presets,'name','preset']].forEach(function(info){var el=$(info[0]);el.textContent='';if(!info[1].length){var p=document.createElement('p');p.className='desc';p.textContent='Nothing added yet.';el.appendChild(p);return}info[1].forEach(function(item,i){var row=document.createElement('div');row.className='item';var text=document.createElement('div');var strong=document.createElement('strong');strong.textContent=item[info[2]]||'(unnamed)';var small=document.createElement('small');small.textContent=info[3]==='override'?'Details: '+(item.details||'—')+' · State: '+(item.state||'—'):info[3]==='variable'?item.value:'Click Apply to load this preset';text.appendChild(strong);text.appendChild(small);row.appendChild(text);if(info[3]==='preset'){var apply=document.createElement('button');apply.className='btn';apply.textContent='Apply';apply.onclick=function(){$('manualName').value=item.gameName;$('manualDetails').value=item.details;$('manualState').value=item.state;$('manualEnabled').checked=true;cfg.settings.manualOverrideEnabled=true;log('Loaded preset: '+item.name)};row.appendChild(apply)}var del=document.createElement('button');del.className='btn';del.textContent='Delete';del.onclick=function(){cfg[info[3]==='override'?'overrides':info[3]==='variable'?'variables':'presets'].splice(i,1);renderLists();log('Deleted '+info[3]);save(null)};row.appendChild(del);el.appendChild(row)})})}
 function setPreview(p){presence=p;$('previewName').textContent=p.name||'Nintendo Switch';$('previewDetails').textContent=[p.details,p.state].filter(Boolean).join(' · ')||'No additional activity details';$('statusText').textContent=p.source||'Preview only — ready for Discord App sync';$('statusDot').className='dot '+(p.live?'good':'');$('lastRefresh').textContent=new Date().toLocaleTimeString();$('checkPresence').textContent=p.live?'Response received':'Preview only';$('checkPresenceDot').className='dot '+(p.live?'good':'');$('sourceStat').textContent=p.live?'nxapi':'Preview'}
 async function testWorker(){try{var r=await fetch(WORKER_URL+'/api/health');if(!r.ok)throw new Error('HTTP '+r.status);var d=await r.json();$('checkWorker').textContent=d.kvConfigured?'Connected · KV bound':'Connected · KV missing';$('checkWorkerDot').className='dot '+(d.kvConfigured?'good':'bad');$('connectionPill').textContent=d.kvConfigured?'Worker reachable':'Worker reachable · no KV';log('Worker connection succeeded: '+JSON.stringify(d));if(!d.tokenConfigured)log('Warning: CODYRPC_TOKEN secret is not set on the Worker, so saving to KV will fail.')}catch(e){$('checkWorker').textContent='Connection failed';$('checkWorkerDot').className='dot bad';$('connectionPill').textContent='Worker unreachable';log('Worker test failed: '+e.message+' (check deployment and CORS).')}}
@@ -170,6 +179,6 @@ $('resetSettings').onclick=function(){if(confirm('Reset CodyRPC Web settings sav
 read();fill();handleOAuthCallback().then(loadDiscordStatus);
 setPreview({name:'Nintendo Switch',details:'Press Refresh status to load your presence.',source:'Waiting for refresh'});
 log('Dashboard ready.');
-testWorker().then(pull);
+testWorker().then(function(){ if(cfg.userId) pull(); });
 })();
 </script></body></html>

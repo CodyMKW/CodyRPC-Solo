@@ -133,7 +133,7 @@ $('authDiscord').onclick=async function(){
   var a=new Uint8Array(48);crypto.getRandomValues(a);var verifier=b64url(a);
   var challenge=b64url(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(verifier)));
   try{localStorage.setItem('codyrpc-pkce',JSON.stringify({v:verifier,r:redirectUri()}))}catch(e){}
-  window.location.href='https://discord.com/oauth2/authorize?client_id='+encodeURIComponent(CLIENT_ID)+'&response_type=code&redirect_uri='+encodeURIComponent(redirectUri())+'&scope='+encodeURIComponent('openid sdk.social_layer_presence')+'&code_challenge='+challenge+'&code_challenge_method=S256';
+  window.location.href='https://discord.com/oauth2/authorize?client_id='+encodeURIComponent(CLIENT_ID)+'&response_type=code&redirect_uri='+encodeURIComponent(redirectUri())+'&scope='+encodeURIComponent('openid sdk.social_layer_presence+rpc.activities.write')+'&code_challenge='+challenge+'&code_challenge_method=S256';
 };
 $('syncNow').onclick=async function(){try{var d=await adminPost('/api/discord/sync');log('Discord sync: '+JSON.stringify(d))}catch(e){log('Discord sync failed: '+e.message)}await loadDiscordStatus()};
 $('disconnectDiscord').onclick=async function(){if(!confirm('Disconnect Discord and clear your presence?'))return;try{await adminPost('/api/discord/disconnect');log('Discord disconnected.')}catch(e){log('Disconnect failed: '+e.message)}await loadDiscordStatus()};

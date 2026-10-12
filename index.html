@@ -111,7 +111,7 @@ async function save(msgId){
 /* ---- UI state ---- */
 function fill(){['nsaId','friendCode','pollInterval','switchLogo','islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){if($(k))$(k).value=cfg[k]===undefined?'':cfg[k]});$('adminToken').value=getToken();document.querySelectorAll('[data-setting]').forEach(function(e){e.checked=!!cfg.settings[e.dataset.setting]});$('manualEnabled').checked=!!cfg.settings.manualOverrideEnabled;$('manualName').value=cfg.manual.name||'';$('manualDetails').value=cfg.manual.details||'';$('manualState').value=cfg.manual.state||'';checkDiscordStatus();renderLists();persist()}
 function gatherGeneral(){['nsaId','friendCode','switchLogo'].forEach(function(k){cfg[k]=$(k).value.trim()});cfg.pollInterval=Math.max(5,Math.min(3600,Number($('pollInterval').value)||180));try{localStorage.setItem(TOKEN_KEY,$('adminToken').value.trim())}catch(e){}}
-function gatherPresence(){['islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){cfg[k]=$(k).value.trim()});document.querySelectorAll('[data-setting]').forEach(function(e){cfg.settings[e.dataset.setting]=e.checked});cfg.settings.manualOverrideEnabled=$('manualEnabled').checked}
+function gatherPresence(){['islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){cfg[k]=$(k).value.trim()});document.querySelectorAll('[data-setting]').forEach(function(e){cfg.settings[e.dataset.setting]=e.checked})}
 var lastDiscord={linked:false};
 function checkDiscordStatus(){var d=lastDiscord;if(d.linked){var bits=['Linked'+(d.user?' as '+d.user:'')];if(d.error)bits.push('error: '+d.error);else if(d.activity)bits.push('showing '+d.activity);else bits.push('no activity (offline)');$('rpcStat').textContent=d.error?'Linked · error':'Linked';$('checkDiscord').textContent=bits.join(' · ');$('checkDiscordDot').className='dot '+(d.error?'bad':'good')}else{$('rpcStat').textContent='Not authorized';$('checkDiscord').textContent='Not authorized';$('checkDiscordDot').className='dot bad'}}
 async function loadDiscordStatus(){try{var r=await fetch(WORKER_URL+'/api/discord/status');lastDiscord=await r.json();checkDiscordStatus()}catch(e){log('Could not load Discord status: '+e.message)}}
@@ -133,7 +133,7 @@ $('authDiscord').onclick=async function(){
   var a=new Uint8Array(48);crypto.getRandomValues(a);var verifier=b64url(a);
   var challenge=b64url(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(verifier)));
   try{localStorage.setItem('codyrpc-pkce',JSON.stringify({v:verifier,r:redirectUri()}))}catch(e){}
-  window.location.href='https://discord.com/oauth2/authorize?client_id='+encodeURIComponent(CLIENT_ID)+'&response_type=code&redirect_uri='+encodeURIComponent(redirectUri())+'&scope='+encodeURIComponent('openid sdk.social_layer_presence+rpc.activities.write')+'&code_challenge='+challenge+'&code_challenge_method=S256';
+  window.location.href='https://discord.com/oauth2/authorize?client_id='+encodeURIComponent(CLIENT_ID)+'&response_type=code&redirect_uri='+encodeURIComponent(redirectUri())+'&scope='+encodeURIComponent('openid sdk.social_layer_presence')+'&code_challenge='+challenge+'&code_challenge_method=S256';
 };
 $('syncNow').onclick=async function(){try{var d=await adminPost('/api/discord/sync');log('Discord sync: '+JSON.stringify(d))}catch(e){log('Discord sync failed: '+e.message)}await loadDiscordStatus()};
 $('disconnectDiscord').onclick=async function(){if(!confirm('Disconnect Discord and clear your presence?'))return;try{await adminPost('/api/discord/disconnect');log('Discord disconnected.')}catch(e){log('Disconnect failed: '+e.message)}await loadDiscordStatus()};
@@ -150,6 +150,8 @@ $('clearLogs').onclick=function(){logs=[];$('logbox').textContent='Logs cleared.
 $('loadSample').onclick=function(){setPreview({name:'Splatoon 3',details:'Salmon Run · Sockeye Station',state:'Online',source:'Sample preview only',live:false});log('Loaded sample preview.')};
 $('resetSettings').onclick=function(){if(confirm('Reset CodyRPC Web settings saved in this browser? (KV is not changed.)')){localStorage.removeItem('codyrpc-web-config');read();fill();log('Local settings reset.')}};
 
+/* Keep the two "manual presence" checkboxes (Presence tab + Manual presets tab) in sync */
+(function(){var a=document.querySelector('[data-setting="manualOverrideEnabled"]'),b=$('manualEnabled');a.addEventListener('change',function(){b.checked=a.checked});b.addEventListener('change',function(){a.checked=b.checked})})();
 read();fill();handleOAuthCallback().then(loadDiscordStatus);
 setPreview({name:'Nintendo Switch',details:'Press Refresh status to load your presence.',source:'Waiting for refresh'});
 log('Dashboard ready.');

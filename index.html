@@ -7,106 +7,143 @@
 :root{color-scheme:dark;--bg:#080d0a;--panel:#101914;--panel2:#141f18;--line:#26372b;--text:#eff8f0;--muted:#91a397;--green:#00d26a;--green2:#00a94f;--amber:#f0bb55;--red:#ff7777}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -20%,#163622 0,transparent 48%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
 button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--green)}.shell{max-width:1240px;margin:auto;padding:28px 22px 60px}
-header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:14px}.logo{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#00e676,#008a43);color:#031108;font-size:25px;box-shadow:0 8px 30px #00d26a24}.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--green);font-weight:800}.brand h1{font-size:24px;margin:0;letter-spacing:-.04em}.sub{margin:2px 0 0;color:var(--muted);font-size:13px}.pill{border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--muted);font-size:12px;white-space:nowrap}.pill:before{content:"";display:inline-block;width:7px;height:7px;background:var(--amber);border-radius:50%;margin-right:8px}
-.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:18px}.panel{background:linear-gradient(150deg,#121c16,#0d140f);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 35px #0002;min-width:0}.hero-main{position:relative;overflow:hidden;min-height:230px}.hero-main:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #00d26a22;border-radius:50%;right:-65px;bottom:-120px;box-shadow:0 0 0 25px #00d26a08,0 0 0 50px #00d26a05}.section-tag{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:750}.game-title{font-size:clamp(24px,4vw,37px);font-weight:800;letter-spacing:-.045em;margin:14px 0 5px}.game-details{color:#b9c8bd;margin:0 0 22px}.statusline{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block}.dot.good{background:var(--green);box-shadow:0 0 12px #00d26a55}.dot.bad{background:var(--red)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}.btn{border:1px solid var(--line);background:#18251c;color:var(--text);border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;transition:.18s}.btn:hover{transform:translateY(-1px);border-color:#477553}.btn.primary{background:var(--green);border-color:var(--green);color:#041109}.btn.ghost{background:transparent}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{border:1px solid var(--line);border-radius:13px;padding:15px;background:#0c130e}.stat small{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.stat strong{font-size:20px;letter-spacing:-.03em}.stat .hint{font-size:11px;color:var(--muted);margin-top:4px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:14px}.logo{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#00e676,#008a43);color:#031108;font-size:25px;box-shadow:0 8px 30px #00d26a24}.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--green);font-weight:800}.brand h1{font-size:24px;margin:0;letter-spacing:-.04em}.sub{margin:2px 0 0;color:var(--muted);font-size:13px}.pill{border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--muted);font-size:12px;white-space:nowrap}.pill:before{content:"";display:inline-block;width:7px;height:7px;background:var(--amber);border-radius:50%;margin-right:8px}.pill.on:before{background:var(--green);box-shadow:0 0 10px #00d26a66}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:18px}.panel{background:linear-gradient(150deg,#121c16,#0d140f);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 35px #0002;min-width:0}.hero-main{position:relative;overflow:hidden;min-height:230px}.hero-main:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #00d26a22;border-radius:50%;right:-65px;bottom:-120px;box-shadow:0 0 0 25px #00d26a08,0 0 0 50px #00d26a05}.section-tag{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:750}.game-title{font-size:clamp(24px,4vw,37px);font-weight:800;letter-spacing:-.045em;margin:14px 0 5px}.game-details{color:#b9c8bd;margin:0 0 22px}.statusline{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block;flex:none}.dot.good{background:var(--green);box-shadow:0 0 12px #00d26a55}.dot.bad{background:var(--red)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}.btn{border:1px solid var(--line);background:#18251c;color:var(--text);border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;transition:.18s}.btn:hover{transform:translateY(-1px);border-color:#477553}.btn.primary{background:var(--green);border-color:var(--green);color:#041109}.btn.ghost{background:transparent}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;border-color:var(--line)}.btn.danger:hover{border-color:#a24b4b}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{border:1px solid var(--line);border-radius:13px;padding:15px;background:#0c130e}.stat small{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.stat strong{font-size:20px;letter-spacing:-.03em}.stat .hint{font-size:11px;color:var(--muted);margin-top:4px}
 .tabs{display:flex;gap:7px;overflow:auto;padding:5px 0 15px}.tab{background:transparent;color:var(--muted);border:1px solid transparent;border-radius:10px;padding:9px 13px;white-space:nowrap;font-weight:700;font-size:13px}.tab.active{background:#122219;border-color:#2c4b35;color:var(--green)}
-.content{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}.maincol,.sidecol{display:grid;align-content:start;gap:16px}.panel h2{font-size:17px;letter-spacing:-.025em;margin:0 0 5px}.desc{font-size:12px;color:var(--muted);margin:0 0 18px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#bdcabe;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #2a3b2f;background:#09100b;color:var(--text);border-radius:9px;padding:10px 11px;outline:none;min-width:0}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px #00d26a14}.field textarea{min-height:82px;resize:vertical}.checks{display:grid;grid-template-columns:1fr 1fr;gap:11px}.check{display:flex;align-items:flex-start;gap:9px;color:#cbd8ce;font-size:13px}.check input{accent-color:var(--green);margin-top:4px}.divider{border:0;border-top:1px solid var(--line);margin:20px 0}.savebar{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}.message{font-size:12px;color:var(--green)}.itemlist{display:grid;gap:8px;margin-top:14px}.item{border:1px solid var(--line);background:#0b120d;border-radius:10px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.item strong{display:block;font-size:13px}.item small{color:var(--muted);font-size:12px}.item button{padding:6px 9px;font-size:11px}.log{font:11px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow:auto;max-height:260px;background:#050906;border:1px solid #1d2a20;border-radius:10px;padding:12px;color:#b1c5b5}.notice{padding:12px 13px;border:1px solid #554525;background:#211a0c;border-radius:11px;color:#d8c69f;font-size:12px;line-height:1.6}.notice strong{color:#ffe0a1}.hidden{display:none!important}.foot{margin-top:24px;color:#64766a;font-size:11px;text-align:center}
+.content{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}.maincol,.sidecol{display:grid;align-content:start;gap:16px}.panel h2{font-size:17px;letter-spacing:-.025em;margin:0 0 5px}.desc{font-size:12px;color:var(--muted);margin:0 0 18px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#bdcabe;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #2a3b2f;background:#09100b;color:var(--text);border-radius:9px;padding:10px 11px;outline:none;min-width:0}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px #00d26a14}.field textarea{min-height:82px;resize:vertical}.checks{display:grid;grid-template-columns:1fr 1fr;gap:11px}.check{display:flex;align-items:flex-start;gap:9px;color:#cbd8ce;font-size:13px}.check input{accent-color:var(--green);margin-top:4px}.divider{border:0;border-top:1px solid var(--line);margin:20px 0}.savebar{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}.message{font-size:12px;color:var(--green)}.itemlist{display:grid;gap:8px;margin-top:14px}.item{border:1px solid var(--line);background:#0b120d;border-radius:10px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.item strong{display:block;font-size:13px}.item small{color:var(--muted);font-size:12px;overflow-wrap:anywhere}.item button{padding:6px 9px;font-size:11px}.log{font:11px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow:auto;max-height:260px;background:#050906;border:1px solid #1d2a20;border-radius:10px;padding:12px;color:#b1c5b5}.notice{padding:12px 13px;border:1px solid #554525;background:#211a0c;border-radius:11px;color:#d8c69f;font-size:12px;line-height:1.6}.notice strong{color:#ffe0a1}.notice.info{border-color:#27432f;background:#0d1a11;color:#b5cdb9}.notice.info strong{color:#d9f3df}.hidden{display:none!important}.foot{margin-top:24px;color:#64766a;font-size:11px;text-align:center}
 @media(max-width:850px){.hero,.content{grid-template-columns:1fr}.sidecol{grid-template-columns:1fr 1fr}}@media(max-width:560px){.shell{padding:18px 13px 40px}header{align-items:flex-start}.pill{display:none}.panel{padding:17px}.formgrid,.checks,.sidecol{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:18px}}
 </style></head>
 <body><div class="shell">
-<header><div class="brand"><div class="logo">🎮</div><div><div class="eyebrow">Nintendo presence toolkit</div><h1>CodyRPC <span style="color:var(--green)">Web</span></h1><p class="sub">Your Switch status. Your rules. One control center.</p></div></div><div class="pill" id="connectionPill">Connecting to Worker…</div></header>
+<header><div class="brand"><div class="logo">🎮</div><div><div class="eyebrow">Nintendo presence toolkit</div><h1>CodyRPC <span style="color:var(--green)">Web</span></h1><p class="sub">Your Switch status. Your rules. One control center.</p></div></div><div class="pill" id="connectionPill">Not signed in</div></header>
 <section class="hero">
 <div class="panel hero-main"><div class="section-tag">Live activity preview</div><div class="game-title" id="previewName">Nintendo Switch</div><p class="game-details" id="previewDetails">Waiting for presence data…</p><div class="statusline"><span class="dot" id="statusDot"></span><span id="statusText">Not connected to a presence source</span></div><div class="actions"><button class="btn primary" id="refreshBtn">↻ Refresh status</button><button class="btn" id="clearBtn">Clear preview</button><button class="btn ghost" id="exportBtn">Export settings</button></div></div>
-<div class="panel"><div class="section-tag" style="margin-bottom:13px">Overview</div><div class="stats"><div class="stat"><small>Discord App Integration</small><strong id="rpcStat">Not authorized</strong><div class="hint">sdk.social_layer_presence</div></div><div class="stat"><small>Presence source</small><strong id="sourceStat">Not checked</strong><div class="hint">nxapi-presence API</div></div><div class="stat"><small>Last refresh</small><strong id="lastRefresh">—</strong><div class="hint">Browser dashboard</div></div><div class="stat"><small>Poll interval</small><strong id="pollStat">180 sec</strong><div class="hint">Minimum 5 seconds</div></div></div></div>
+<div class="panel"><div class="section-tag" style="margin-bottom:13px">Overview</div><div class="stats"><div class="stat"><small>Discord App Integration</small><strong id="rpcStat">Not signed in</strong><div class="hint">sdk.social_layer_presence</div></div><div class="stat"><small>Presence source</small><strong id="sourceStat">Not checked</strong><div class="hint">nxapi-presence API</div></div><div class="stat"><small>Last refresh</small><strong id="lastRefresh">—</strong><div class="hint">Browser dashboard</div></div><div class="stat"><small>Cloud checks</small><strong id="pollStat">15 sec</strong><div class="hint">Runs with this page closed</div></div></div></div>
 </section>
-<nav class="tabs" aria-label="Dashboard sections"><button class="tab active" data-tab="general">General</button><button class="tab" data-tab="presence">Presence settings</button><button class="tab" data-tab="overrides">Game overrides</button><button class="tab" data-tab="presets">Manual presets</button><button class="tab" data-tab="logs">Logs & setup</button></nav>
+<nav class="tabs" aria-label="Dashboard sections"><button class="tab active" data-tab="general">General</button><button class="tab" data-tab="presence">Presence settings</button><button class="tab" data-tab="overrides">Game overrides</button><button class="tab" data-tab="presets">Manual presets</button><button class="tab" data-tab="logs">Logs & setup</button><button class="tab" data-tab="admin">Admin</button></nav>
 <div class="content"><div class="maincol">
-<section class="panel tabpage" id="tab-general"><h2>Connection & configuration</h2><p class="desc">Configure Nintendo presence, save your settings to Cloudflare KV, and authorize your Discord App.</p><div class="formgrid">
-<div class="field"><label for="nsaId">Nintendo Account (NSA) ID</label><input id="nsaId" placeholder="644cd5195d154bd5"></div>
-<div class="field"><label for="friendCode">Friend code</label><input id="friendCode" placeholder="SW-0000-0000-0000"></div>
-<div class="field"><label for="pollInterval">Poll interval (seconds)</label><input id="pollInterval" type="number" min="5" max="3600" value="180"></div>
-<div class="field"><label for="adminToken">Worker admin token</label><input id="adminToken" type="password" placeholder="Your CODYRPC_TOKEN secret" autocomplete="off"></div>
+<section class="panel tabpage" id="tab-general"><h2>Connection & configuration</h2><p class="desc">Authorize your Discord account, tell the Worker which Nintendo account to watch, and your Switch status shows on Discord automatically — even with this page closed.</p>
+<div class="notice" id="signinBanner" style="margin-bottom:16px"><strong>You're not signed in.</strong> Press <strong>Authorize Discord App</strong> below to get started. Settings can only be saved to your account after you authorize — until then you can fill things in and they'll wait on this device.</div>
+<div class="formgrid">
+<div class="field"><label for="nsaId">Nintendo Account (NSA) ID</label><input id="nsaId" placeholder="e.g. 644cd5195d154bd5" autocomplete="off"></div>
+<div class="field"><label for="friendCode">Friend code</label><input id="friendCode" placeholder="SW-0000-0000-0000" autocomplete="off"></div>
 <div class="field full"><label for="switchLogo">Default Switch image URL</label><input id="switchLogo" value="https://codymkw.github.io/switch/nintendo_switch_logo.png"></div>
 </div>
 <div class="savebar">
-<button class="btn primary" id="saveGeneral">Save configuration</button>
+<button class="btn primary" id="saveGeneral" data-needs-auth>Save configuration</button>
 <button class="btn" id="authDiscord">Authorize Discord App</button>
 <span class="message" id="generalMsg"></span>
 </div>
 <hr class="divider">
-<div class="notice"><strong>Saving to KV:</strong> the Worker only accepts changes from requests carrying your <code>CODYRPC_TOKEN</code> secret, so paste it into the admin token field once. It is kept only in this browser and is never included in exported settings.<br><br><strong>Discord App integration note:</strong> after you authorize, the Worker keeps your Discord token in KV and updates your presence every minute on a cron schedule, even with every browser closed. In the Discord Developer Portal, make sure your exact Redirect URI is added and that the app is set as a <strong>Public Client</strong> (OAuth2 page). Save your admin token above before authorizing.</div>
+<div class="notice info" style="margin-bottom:12px"><strong>Where do I find my NSA ID?</strong> Status comes from the free nxapi presence server. Go to <a href="https://nxapi-auth.fancy.org.uk" target="_blank" rel="noopener">nxapi-auth.fancy.org.uk</a>, sign in, enter your friend code and accept the friend request from the presence server. The presence URL it shows you ends with your NSA ID — a code like <code>644cd5195d154bd5</code>.</div>
+<div class="notice"><strong>What's stored, and where:</strong> your Discord authorization is kept privately in this Worker's database so your status keeps updating while your browser is closed. Everything is saved under your own Discord account — other people can't see or change it. Discord's permission screen lists everything the <code>sdk.social_layer_presence</code> scope includes (it is broader than just presence). Use <strong>Disconnect Discord &amp; delete my data</strong> any time to revoke it and erase everything stored for you.</div>
 </section>
-<section class="panel tabpage hidden" id="tab-presence"><h2>Presence display</h2><p class="desc">Tune how game activity should be displayed.</p><div class="formgrid"><div class="field"><label for="islandName">Animal Crossing island name</label><input id="islandName" value="Ula'Ula"></div><div class="field"><label for="coopPartner">Co-op partner</label><input id="coopPartner" value="Joseph"></div><div class="field full"><label for="customStatus">Custom status suffix</label><input id="customStatus" placeholder="Streaming on Twitch!"></div><div class="field"><label for="buttonLabel">Custom button label</label><input id="buttonLabel" value="Visit My Website"></div><div class="field"><label for="buttonUrl">Custom button URL</label><input id="buttonUrl" value="https://codymkw.github.io"></div></div><hr class="divider"><div class="checks" id="settingsChecks">
-<label class="check"><input type="checkbox" data-setting="showEshopButton" checked> Show eShop button when available</label><label class="check"><input type="checkbox" data-setting="showSplatoonStages" checked> Show Splatoon stages</label><label class="check"><input type="checkbox" data-setting="cleanGameNames" checked> Clean Nintendo game names</label><label class="check"><input type="checkbox" data-setting="showTotalPlayTime" checked> Show total play time</label><label class="check"><input type="checkbox" data-setting="showFriendCode" checked> Show friend-code tooltip</label><label class="check"><input type="checkbox" data-setting="showCoopPartner"> Append co-op partner</label><label class="check"><input type="checkbox" data-setting="showCustomButton" checked> Show custom button</label><label class="check"><input type="checkbox" data-setting="eshopModeEnabled"> eShop mode</label><label class="check"><input type="checkbox" data-setting="manualOverrideEnabled"> Enable manual presence</label><label class="check"><input type="checkbox" data-setting="showNotifications"> Browser notifications</label></div><div class="savebar"><button class="btn primary" id="savePresence">Save presence settings</button><span class="message" id="presenceMsg"></span></div></section>
-<section class="panel tabpage hidden" id="tab-overrides"><h2>Custom game overrides</h2><p class="desc">Replace details and state for specific games. Placeholders: <code>{sysDescription}</code>, <code>{playTime}</code>, <code>{gameName}</code>, <code>{player}</code>, plus custom variables.</p><div class="formgrid"><div class="field"><label for="ovGame">Game name contains</label><input id="ovGame" placeholder="Splatoon 3"></div><div class="field"><label for="ovDetails">Custom details</label><input id="ovDetails" placeholder="Salmon Run shift"></div><div class="field full"><label for="ovState">Custom state</label><input id="ovState" placeholder="Stage: {sysDescription}"></div></div><div class="savebar"><button class="btn primary" id="addOverride">Add override</button><span class="message" id="overrideMsg"></span></div><div id="overrideList" class="itemlist"></div><hr class="divider"><h2>Custom variables</h2><p class="desc">Create reusable placeholders like <code>{region}</code>.</p><div class="formgrid"><div class="field"><label for="varKey">Variable key</label><input id="varKey" placeholder="region"></div><div class="field"><label for="varValue">Value</label><input id="varValue" placeholder="Earth"></div></div><div class="savebar"><button class="btn" id="addVariable">Add variable</button></div><div id="variableList" class="itemlist"></div></section>
-<section class="panel tabpage hidden" id="tab-presets"><h2>Manual presence & presets</h2><p class="desc">Create a custom activity for when live Nintendo presence is unavailable.</p><div class="checks"><label class="check"><input type="checkbox" id="manualEnabled"> Enable manual presence</label></div><div class="formgrid" style="margin-top:14px"><div class="field full"><label for="manualName">Activity name</label><input id="manualName" placeholder="Animal Crossing: New Horizons"></div><div class="field"><label for="manualDetails">Details</label><input id="manualDetails" placeholder="Exploring the island"></div><div class="field"><label for="manualState">State</label><input id="manualState" placeholder="4 hrs played"></div><div class="field full"><label for="presetName">Preset name</label><input id="presetName" placeholder="Chilling / AFK / Playing"></div></div><div class="savebar"><button class="btn primary" id="savePreset">Save current as preset</button><button class="btn" id="saveManual">Save manual presence</button><span class="message" id="presetMsg"></span></div><div id="presetList" class="itemlist"></div></section>
-<section class="panel tabpage hidden" id="tab-logs"><h2>Logs & setup</h2><p class="desc">Browser-side events and connection diagnostics.</p><div id="logbox" class="log">CodyRPC Web initialized.</div><div class="actions"><button class="btn" id="downloadLogs">Download logs</button><button class="btn" id="clearLogs">Clear logs</button></div><hr class="divider"><h2>What is included?</h2><p class="desc">A polished dashboard, Cloudflare Worker API, KV-backed configuration, and a Discord app integration guide.</p><p class="desc">The Worker needs a <code>CODYRPC_CONFIG</code> KV binding and a <code>CODYRPC_TOKEN</code> secret to store settings. Your Discord Application must have the <code>sdk.social_layer_presence</code> scope, and your Discord account must be authorized.</p></section>
-</div><aside class="sidecol"><section class="panel"><h2>System checklist</h2><p class="desc">Things to complete before going live.</p><div class="item"><div><strong>Worker endpoint</strong><small id="checkWorker">Not checked</small></div><span class="dot" id="checkWorkerDot"></span></div><div class="item"><div><strong>Nintendo status</strong><small id="checkPresence">Not checked</small></div><span class="dot" id="checkPresenceDot"></span></div><div class="item"><div><strong>Discord App auth</strong><small id="checkDiscord">Not authorized</small></div><span class="dot" id="checkDiscordDot"></span></div><div class="item"><div><strong>Settings in KV</strong><small id="checkSaved">Not synced yet</small></div><span class="dot" id="checkSavedDot"></span></div></section><section class="panel"><h2>Quick actions</h2><p class="desc">Handy shortcuts for setup and testing.</p><div class="actions" style="margin-top:0;display:grid"><button class="btn" id="testWorker">Test Worker connection</button><button class="btn" id="pullConfig">Reload settings from KV</button><button class="btn" id="syncNow">Sync Discord now</button><button class="btn" id="disconnectDiscord">Disconnect Discord</button><button class="btn" id="loadSample">Load sample presence</button><button class="btn" id="resetSettings">Reset local settings</button></div><p class="desc" style="margin:14px 0 0">Your browser preview reflects your active status rules.</p></section><section class="panel"><h2>Discord App Ready</h2><p class="desc">Your Discord application configured with the <code>sdk.social_layer_presence</code> scope allows seamless cloud presence management without any background desktop companion.</p></section></aside></div>
+<section class="panel tabpage hidden" id="tab-presence"><h2>Presence display</h2><p class="desc">Tune how game activity should be displayed.</p><div class="formgrid"><div class="field"><label for="islandName">Animal Crossing island name</label><input id="islandName" placeholder="Your island's name"></div><div class="field"><label for="coopPartner">Co-op partner</label><input id="coopPartner" placeholder="A friend's name"></div><div class="field full"><label for="customStatus">Custom status suffix</label><input id="customStatus" placeholder="Streaming on Twitch!"></div><div class="field"><label for="buttonLabel">Custom button label</label><input id="buttonLabel" placeholder="Visit My Website"></div><div class="field"><label for="buttonUrl">Custom button URL (https)</label><input id="buttonUrl" placeholder="https://example.com"></div></div><hr class="divider"><div class="checks" id="settingsChecks">
+<label class="check"><input type="checkbox" data-setting="showEshopButton" checked> Show eShop button when available</label><label class="check"><input type="checkbox" data-setting="showSplatoonStages" checked> Show Splatoon stages</label><label class="check"><input type="checkbox" data-setting="cleanGameNames" checked> Clean Nintendo game names</label><label class="check"><input type="checkbox" data-setting="showTotalPlayTime" checked> Show total play time</label><label class="check"><input type="checkbox" data-setting="showFriendCode" checked> Show friend-code tooltip</label><label class="check"><input type="checkbox" data-setting="showCoopPartner"> Append co-op partner</label><label class="check"><input type="checkbox" data-setting="showCustomButton"> Show custom button</label><label class="check"><input type="checkbox" data-setting="eshopModeEnabled"> eShop mode</label><label class="check"><input type="checkbox" data-setting="manualOverrideEnabled"> Enable manual presence</label><label class="check"><input type="checkbox" data-setting="showNotifications"> Browser notifications</label></div><div class="savebar"><button class="btn primary" id="savePresence" data-needs-auth>Save presence settings</button><span class="message" id="presenceMsg"></span></div></section>
+<section class="panel tabpage hidden" id="tab-overrides"><h2>Custom game overrides</h2><p class="desc">Replace details and state for specific games. Placeholders: <code>{sysDescription}</code>, <code>{playTime}</code>, <code>{gameName}</code>, <code>{player}</code>, plus custom variables.</p><div class="formgrid"><div class="field"><label for="ovGame">Game name contains</label><input id="ovGame" placeholder="Splatoon 3"></div><div class="field"><label for="ovDetails">Custom details</label><input id="ovDetails" placeholder="Salmon Run shift"></div><div class="field full"><label for="ovState">Custom state</label><input id="ovState" placeholder="Stage: {sysDescription}"></div></div><div class="savebar"><button class="btn primary" id="addOverride" data-needs-auth>Add override</button><span class="message" id="overrideMsg"></span></div><div id="overrideList" class="itemlist"></div><hr class="divider"><h2>Custom variables</h2><p class="desc">Create reusable placeholders like <code>{region}</code>.</p><div class="formgrid"><div class="field"><label for="varKey">Variable key</label><input id="varKey" placeholder="region"></div><div class="field"><label for="varValue">Value</label><input id="varValue" placeholder="Earth"></div></div><div class="savebar"><button class="btn" id="addVariable" data-needs-auth>Add variable</button></div><div id="variableList" class="itemlist"></div></section>
+<section class="panel tabpage hidden" id="tab-presets"><h2>Manual presence & presets</h2><p class="desc">Create a custom activity for when live Nintendo presence is unavailable.</p><div class="checks"><label class="check"><input type="checkbox" id="manualEnabled"> Enable manual presence</label></div><div class="formgrid" style="margin-top:14px"><div class="field full"><label for="manualName">Activity name</label><input id="manualName" placeholder="Animal Crossing: New Horizons"></div><div class="field"><label for="manualDetails">Details</label><input id="manualDetails" placeholder="Exploring the island"></div><div class="field"><label for="manualState">State</label><input id="manualState" placeholder="4 hrs played"></div><div class="field full"><label for="presetName">Preset name</label><input id="presetName" placeholder="Chilling / AFK / Playing"></div></div><div class="savebar"><button class="btn primary" id="savePreset" data-needs-auth>Save current as preset</button><button class="btn" id="saveManual" data-needs-auth>Save manual presence</button><span class="message" id="presetMsg"></span></div><div id="presetList" class="itemlist"></div></section>
+<section class="panel tabpage hidden" id="tab-logs"><h2>Logs & setup</h2><p class="desc">Browser-side events and connection diagnostics.</p><div id="logbox" class="log">CodyRPC Web initialized.</div><div class="actions"><button class="btn" id="downloadLogs">Download logs</button><button class="btn" id="clearLogs">Clear logs</button></div><hr class="divider"><h2>Owner setup checklist</h2><p class="desc">Only the person running the Worker needs this.</p><p class="desc">In Cloudflare: a KV binding named <code>CODYRPC_CONFIG</code>, a secret <code>CODYRPC_TOKEN</code> (the <em>admin</em> token — keep it to yourself), and a cron trigger <code>* * * * *</code>. Optional variables: <code>MAX_USERS</code> (default 6 — the free plan allows about 6 people at 15-second checks) and <code>ALLOWED_USERS</code> (comma-separated Discord user IDs; if set, only they can sign up). In the Discord Developer Portal, add this page's exact URL as a Redirect URI and keep the app a <strong>Public Client</strong>.</p></section>
+<section class="panel tabpage hidden" id="tab-admin"><h2>Admin</h2><p class="desc">For the owner only. Enter the Worker's <code>CODYRPC_TOKEN</code> to see who is linked and remove people. Normal users never need this.</p><div class="formgrid"><div class="field full"><label for="adminToken">Admin token</label><input id="adminToken" type="password" placeholder="Your CODYRPC_TOKEN secret" autocomplete="off"></div></div><div class="savebar"><button class="btn primary" id="adminLoad">Load users</button><span class="message" id="adminMsg"></span></div><div id="adminList" class="itemlist"></div></section>
+</div><aside class="sidecol"><section class="panel"><h2>System checklist</h2><p class="desc">Things to complete before going live.</p><div class="item"><div><strong>Worker endpoint</strong><small id="checkWorker">Not checked</small></div><span class="dot" id="checkWorkerDot"></span></div><div class="item"><div><strong>Nintendo status</strong><small id="checkPresence">Not checked</small></div><span class="dot" id="checkPresenceDot"></span></div><div class="item"><div><strong>Discord App auth</strong><small id="checkDiscord">Not authorized</small></div><span class="dot" id="checkDiscordDot"></span></div><div class="item"><div><strong>Settings saved</strong><small id="checkSaved">Authorize Discord first</small></div><span class="dot" id="checkSavedDot"></span></div></section><section class="panel"><h2>Quick actions</h2><p class="desc">Handy shortcuts for setup and testing.</p><div class="actions" style="margin-top:0;display:grid"><button class="btn" id="testWorker">Test Worker connection</button><button class="btn" id="pullConfig" data-needs-auth>Reload my settings</button><button class="btn" id="syncNow" data-needs-auth>Sync Discord now</button><button class="btn" id="signOut" data-needs-auth>Sign out of this browser</button><button class="btn danger" id="disconnectDiscord" data-needs-auth>Disconnect Discord &amp; delete my data</button><button class="btn" id="loadSample">Load sample presence</button><button class="btn" id="resetSettings">Reset local settings</button></div><p class="desc" style="margin:14px 0 0">Your browser preview reflects your active status rules.</p></section><section class="panel"><h2>Discord App Ready</h2><p class="desc">Your Discord application configured with the <code>sdk.social_layer_presence</code> scope allows seamless cloud presence management without any background desktop companion.</p></section></aside></div>
 <div class="foot">CodyRPC Web · Unofficial personal project · Keep private endpoints private.</div></div>
 <script>
 (function(){
 'use strict';
 var WORKER_URL='https://codyrpc-web.codymkw.workers.dev';
 var CLIENT_ID='1543356402179899432';
-var TOKEN_KEY='codyrpc-web-token';
-var defaults={nsaId:'644cd5195d154bd5',friendCode:'SW-2549-4631-6600',discordCode:'',pollInterval:180,switchLogo:'https://codymkw.github.io/switch/nintendo_switch_logo.png',islandName:"Ula'Ula",coopPartner:'Joseph',customStatus:'',buttonLabel:'Visit My Website',buttonUrl:'https://codymkw.github.io',userId:'',settings:{showEshopButton:true,showSplatoonStages:true,cleanGameNames:true,showTotalPlayTime:true,showFriendCode:true,showCoopPartner:false,showCustomButton:true,eshopModeEnabled:false,manualOverrideEnabled:false,showNotifications:false},manual:{name:'',details:'',state:''},overrides:[],variables:[],presets:[]};
-var cfg, logs=[], presence=null;
+var SESSION_KEY='codyrpc-web-session';
+var CFG_KEY='codyrpc-web-config';
+var PKCE_KEY='codyrpc-pkce';
+/* Neutral defaults: nothing personal is baked in, so every new person starts with a clean slate. */
+var defaults={nsaId:'',friendCode:'',switchLogo:'https://codymkw.github.io/switch/nintendo_switch_logo.png',islandName:'',coopPartner:'',customStatus:'',buttonLabel:'',buttonUrl:'',ownerId:'',settings:{showEshopButton:true,showSplatoonStages:true,cleanGameNames:true,showTotalPlayTime:true,showFriendCode:true,showCoopPartner:false,showCustomButton:false,eshopModeEnabled:false,manualOverrideEnabled:false,showNotifications:false},manual:{name:'',details:'',state:''},overrides:[],variables:[],presets:[]};
+var cfg, logs=[], presence=null, session=null, lastStatus={linked:false};
 function $(id){return document.getElementById(id)}
 function pick(v,f){return v===undefined||v===null?f:v}
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function clone(o){return JSON.parse(JSON.stringify(o))}
 function log(s){var d=new Date().toLocaleTimeString();logs.push('['+d+'] '+s);if(logs.length>200)logs.shift();$('logbox').textContent=logs.join('\n')}
-function read(){try{cfg=Object.assign({},defaults,JSON.parse(localStorage.getItem('codyrpc-web-config')||'{}'));cfg.settings=Object.assign({},defaults.settings,cfg.settings||{});cfg.manual=Object.assign({},defaults.manual,cfg.manual||{});cfg.overrides=cfg.overrides||[];cfg.variables=cfg.variables||[];cfg.presets=cfg.presets||[]}catch(e){cfg=JSON.parse(JSON.stringify(defaults))}}
-function persist(){try{localStorage.setItem('codyrpc-web-config',JSON.stringify(cfg))}catch(e){}$('pollStat').textContent=Math.max(5,Number(cfg.pollInterval)||180)+' sec'}
-function getToken(){try{return localStorage.getItem(TOKEN_KEY)||''}catch(e){return ''}}
+function read(){
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(CFG_KEY)||'{}')||{}}catch(e){saved={}}
+  cfg=Object.assign(clone(defaults),saved);
+  cfg.settings=Object.assign({},defaults.settings,saved.settings||{});
+  cfg.manual=Object.assign({},defaults.manual,saved.manual||{});
+  cfg.overrides=Array.isArray(cfg.overrides)?cfg.overrides:[];cfg.variables=Array.isArray(cfg.variables)?cfg.variables:[];cfg.presets=Array.isArray(cfg.presets)?cfg.presets:[];
+  /* drop leftovers from older versions of this page */
+  ['userId','discordCode','pollInterval','workerUrl','clientId'].forEach(function(k){delete cfg[k]});
+}
+function persist(){try{localStorage.setItem(CFG_KEY,JSON.stringify(cfg))}catch(e){}}
+function loadSession(){try{var s=JSON.parse(localStorage.getItem(SESSION_KEY)||'null');session=(s&&s.token&&s.userId)?s:null}catch(e){session=null}}
+function storeSession(s){session=s;try{if(s)localStorage.setItem(SESSION_KEY,JSON.stringify(s));else localStorage.removeItem(SESSION_KEY)}catch(e){}}
+function signedIn(){return !!session}
 function setSync(state,text){$('checkSaved').textContent=text;$('checkSavedDot').className='dot'+(state?' '+state:'')}
 
-/* ---- Worker (KV) sync ---- */
+/* ---- Worker API (every call is tied to YOUR personal session token) ---- */
+async function api(path,opts){
+  opts=opts||{};var attempt=0;
+  while(true){
+    var headers={'Content-Type':'application/json'};
+    if(opts.token)headers.Authorization='Bearer '+opts.token;
+    else if(session&&!opts.anon)headers.Authorization='Bearer '+session.token;
+    var r=await fetch(WORKER_URL+path,{method:opts.method||'GET',headers:headers,body:opts.body?JSON.stringify(opts.body):undefined});
+    var d={};try{d=await r.json()}catch(_){}
+    if(r.status===401&&session&&!opts.token&&!opts.anon){
+      /* right after sign-in the new session can take a moment to be visible everywhere — retry briefly */
+      if(Date.now()-(session.at||0)<90000&&attempt<3){attempt++;await sleep(2500);continue}
+      storeSession(null);setAuthUi();
+      throw new Error(d.error||'Your session ended. Authorize Discord again.');
+    }
+    if(!r.ok)throw new Error(d.error||'HTTP '+r.status);
+    return d;
+  }
+}
 function toWorker(){
   var s=Object.assign({},cfg.settings);
   s.islandName=cfg.islandName;s.coopPartner=cfg.coopPartner;s.customStatus=cfg.customStatus;
   s.customButtonLabel=cfg.buttonLabel;s.customButtonUrl=cfg.buttonUrl;
   s.manualName=cfg.manual.name;s.manualDetails=cfg.manual.details;s.manualState=cfg.manual.state;
   s.manualPresets=cfg.presets;s.customGameOverrides=cfg.overrides;s.customVariables=cfg.variables;
-  return {discordClientId:CLIENT_ID,nsaId:cfg.nsaId,friendCode:cfg.friendCode,pollIntervalSeconds:Math.max(5,Number(cfg.pollInterval)||180),switchLogoUrl:cfg.switchLogo,userId:cfg.userId||'',settings:s};
+  return {nsaId:cfg.nsaId,friendCode:cfg.friendCode,switchLogoUrl:cfg.switchLogo,settings:s};
 }
 function fromWorker(w){
   var s=w.settings||{};
-  cfg.nsaId=pick(w.nsaId,cfg.nsaId);cfg.friendCode=pick(w.friendCode,cfg.friendCode);
-  cfg.pollInterval=pick(w.pollIntervalSeconds,cfg.pollInterval);cfg.switchLogo=pick(w.switchLogoUrl,cfg.switchLogo);
-  cfg.userId=pick(w.userId,cfg.userId);
-  cfg.islandName=pick(s.islandName,cfg.islandName);cfg.coopPartner=pick(s.coopPartner,cfg.coopPartner);cfg.customStatus=pick(s.customStatus,cfg.customStatus);
-  cfg.buttonLabel=pick(s.customButtonLabel,cfg.buttonLabel);cfg.buttonUrl=pick(s.customButtonUrl,cfg.buttonUrl);
-  Object.keys(cfg.settings).forEach(function(k){if(s[k]!==undefined&&s[k]!==null)cfg.settings[k]=s[k]});
+  cfg.nsaId=pick(w.nsaId,'');cfg.friendCode=pick(w.friendCode,'');cfg.switchLogo=pick(w.switchLogoUrl,defaults.switchLogo);
+  cfg.islandName=pick(s.islandName,'');cfg.coopPartner=pick(s.coopPartner,'');cfg.customStatus=pick(s.customStatus,'');
+  cfg.buttonLabel=pick(s.customButtonLabel,'');cfg.buttonUrl=pick(s.customButtonUrl,'');
+  Object.keys(defaults.settings).forEach(function(k){if(s[k]!==undefined&&s[k]!==null)cfg.settings[k]=s[k]});
   cfg.manual={name:pick(s.manualName,''),details:pick(s.manualDetails,''),state:pick(s.manualState,'')};
-  cfg.presets=Array.isArray(s.manualPresets)?s.manualPresets:cfg.presets;
-  cfg.overrides=Array.isArray(s.customGameOverrides)?s.customGameOverrides:cfg.overrides;
-  cfg.variables=Array.isArray(s.customVariables)?s.customVariables:cfg.variables;
+  cfg.presets=Array.isArray(s.manualPresets)?s.manualPresets:[];
+  cfg.overrides=Array.isArray(s.customGameOverrides)?s.customGameOverrides:[];
+  cfg.variables=Array.isArray(s.customVariables)?s.customVariables:[];
 }
-async function pull(){
-  if(!cfg.userId){setSync('','Authorize Discord first');log('Not pulled: no user ID set yet.');return;}
-  try{
-    var url=WORKER_URL+'/api/config?userId='+encodeURIComponent(cfg.userId);
-    var r=await fetch(url);
-    if(!r.ok)throw new Error('HTTP '+r.status);
-    var d=await r.json();
-    if(d._fromKV){fromWorker(d);persist();fill();setSync('good','Loaded from KV');log('Settings loaded from Worker KV.')}
-    else{setSync('','KV empty — save to create');log('No saved config in KV yet; using local settings.')}
-  }catch(e){setSync('bad','Could not reach KV');log('Could not load config from Worker: '+e.message)}
+/* overwrite=true → the cloud copy replaces what's on screen (always the SIGNED-IN person's own settings) */
+function applyServer(d,overwrite){
+  lastStatus=d.status||{linked:true};
+  if(d.fromKV){
+    if(overwrite!==false){fromWorker(d.config);cfg.ownerId=session.userId;persist();fill()}
+    setSync('good','Loaded from your account');
+  }else{
+    cfg.ownerId=session.userId;persist();
+    setSync('','New account — add your details and save');
+  }
+  checkDiscordStatus();
+}
+async function loadMe(overwrite){
+  if(!signedIn()){checkDiscordStatus();return}
+  try{applyServer(await api('/api/me'),overwrite)}
+  catch(e){setSync('bad','Could not reach the cloud');log('Could not load your account: '+e.message)}
 }
 async function push(){
-  var token=getToken();
-  if(!token){setSync('bad','Admin token missing');log('Save skipped: no admin token set.');return 'Saved locally only — add your admin token to sync to KV.'}
-  if(!cfg.userId){setSync('bad','Authorize Discord first');log('Save skipped: no Discord user ID associated yet.');return 'Please authorize Discord first before saving to KV.'}
+  if(!signedIn()){setSync('bad','Not signed in');return 'Authorize Discord first — settings can only be saved once you are signed in.'}
   try{
-    var r=await fetch(WORKER_URL+'/api/config',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token,'X-Discord-User-Id': cfg.userId},body:JSON.stringify(toWorker())});
-    var d={};try{d=await r.json()}catch(_){}
-    if(!r.ok)throw new Error(d.error||'HTTP '+r.status);
-    if(d.userId && !cfg.userId) { cfg.userId = d.userId; persist(); }
-    setSync('good','Saved '+new Date().toLocaleTimeString());log('Settings saved to Worker KV.');
-    return 'Saved to Cloudflare KV.';
-  }catch(e){setSync('bad','KV save failed');log('KV save failed: '+e.message);return 'KV save failed: '+e.message}
+    await api('/api/config',{method:'POST',body:toWorker()});
+    cfg.ownerId=session.userId;persist();
+    setSync('good','Saved '+new Date().toLocaleTimeString());log('Settings saved to your account.');
+    return 'Saved. Your Discord status updates within a minute.';
+  }catch(e){setSync('bad','Save failed');log('Save failed: '+e.message);return 'Save failed: '+e.message}
 }
 async function save(msgId){
   persist();
+  if(!signedIn())return;
   var el=msgId?$(msgId):null;
   if(el)el.textContent='Saving…';
   var m=await push();
@@ -114,57 +151,97 @@ async function save(msgId){
 }
 
 /* ---- UI state ---- */
-function fill(){['nsaId','friendCode','pollInterval','switchLogo','islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){if($(k))$(k).value=cfg[k]===undefined?'':cfg[k]});$('adminToken').value=getToken();document.querySelectorAll('[data-setting]').forEach(function(e){e.checked=!!cfg.settings[e.dataset.setting]});$('manualEnabled').checked=!!cfg.settings.manualOverrideEnabled;$('manualName').value=cfg.manual.name||'';$('manualDetails').value=cfg.manual.details||'';$('manualState').value=cfg.manual.state||'';checkDiscordStatus();renderLists();persist()}
-function gatherGeneral(){['nsaId','friendCode','switchLogo'].forEach(function(k){cfg[k]=$(k).value.trim()});cfg.pollInterval=Math.max(5,Math.min(3600,Number($('pollInterval').value)||180));try{localStorage.setItem(TOKEN_KEY,$('adminToken').value.trim())}catch(e){}}
-function gatherPresence(){['islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){cfg[k]=$(k).value.trim()});document.querySelectorAll('[data-setting]').forEach(function(e){cfg.settings[e.dataset.setting]=e.checked})}
-var lastDiscord={linked:false};
-function checkDiscordStatus(){var d=lastDiscord;if(d.linked){var bits=['Linked'+(d.user?' as '+d.user:'')];if(d.error)bits.push('error: '+d.error);else if(d.activity)bits.push('showing '+d.activity);else bits.push('no activity (offline)');$('rpcStat').textContent=d.error?'Linked · error':'Linked';$('checkDiscord').textContent=bits.join(' · ');$('checkDiscordDot').className='dot '+(d.error?'bad':'good')}else{$('rpcStat').textContent='Not authorized';$('checkDiscord').textContent='Not authorized';$('checkDiscordDot').className='dot bad'}}
-async function loadDiscordStatus(){
-  if(!cfg.userId) { checkDiscordStatus(); return; }
-  try{
-    var r=await fetch(WORKER_URL+'/api/discord/status?userId='+encodeURIComponent(cfg.userId));
-    lastDiscord=await r.json();
-    if(lastDiscord.userId && !cfg.userId){cfg.userId=lastDiscord.userId;persist()}
-    checkDiscordStatus();
-  }catch(e){log('Could not load Discord status: '+e.message)}
+function setAuthUi(){
+  var on=signedIn();
+  document.querySelectorAll('[data-needs-auth]').forEach(function(b){b.disabled=!on;b.title=on?'':'Authorize Discord first'});
+  $('signinBanner').classList.toggle('hidden',on);
+  $('authDiscord').textContent=on?'Re-authorize Discord':'Authorize Discord App';
+  $('connectionPill').textContent=on?'Signed in as '+(session.user||'Discord user'):'Not signed in';
+  $('connectionPill').classList.toggle('on',on);
+  if(!on)setSync('','Authorize Discord first');
+  checkDiscordStatus();
 }
-async function adminPost(path,body){
-  var token=getToken();
-  if(!token)throw new Error('Set your admin token first.');
-  body = body || {};
-  if(cfg.userId && !body.userId) body.userId = cfg.userId;
-  var headers = {'Content-Type':'application/json','Authorization':'Bearer '+token};
-  if(cfg.userId) headers['X-Discord-User-Id'] = cfg.userId;
-  var r=await fetch(WORKER_URL+path,{method:'POST',headers:headers,body:JSON.stringify(body)});
-  var d={};try{d=await r.json()}catch(_){}
-  if(!r.ok)throw new Error(d.error||'HTTP '+r.status);
-  return d;
+function fill(){['nsaId','friendCode','switchLogo','islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){if($(k))$(k).value=cfg[k]===undefined?'':cfg[k]});document.querySelectorAll('[data-setting]').forEach(function(e){e.checked=!!cfg.settings[e.dataset.setting]});$('manualEnabled').checked=!!cfg.settings.manualOverrideEnabled;$('manualName').value=cfg.manual.name||'';$('manualDetails').value=cfg.manual.details||'';$('manualState').value=cfg.manual.state||'';renderLists();persist()}
+function gatherGeneral(){['nsaId','friendCode','switchLogo'].forEach(function(k){cfg[k]=$(k).value.trim()})}
+function gatherPresence(){['islandName','coopPartner','customStatus','buttonLabel','buttonUrl'].forEach(function(k){cfg[k]=$(k).value.trim()});document.querySelectorAll('[data-setting]').forEach(function(e){cfg.settings[e.dataset.setting]=e.checked})}
+function checkDiscordStatus(){
+  if(!signedIn()){$('rpcStat').textContent='Not signed in';$('checkDiscord').textContent='Not authorized';$('checkDiscordDot').className='dot bad';return}
+  var d=lastStatus||{},who=d.user||session.user||'';
+  var bits=['Linked'+(who?' as '+who:'')];
+  if(d.error)bits.push('error: '+d.error);else if(d.activity)bits.push('showing '+d.activity);else bits.push('no activity (offline)');
+  if(d.lastUpdate)bits.push('updated '+new Date(d.lastUpdate).toLocaleTimeString());
+  $('rpcStat').textContent=d.error?'Linked · error':'Linked';
+  $('checkDiscord').textContent=bits.join(' · ');
+  $('checkDiscordDot').className='dot '+(d.error?'bad':'good');
 }
 function b64url(buf){var s='',b=new Uint8Array(buf);for(var i=0;i<b.length;i++)s+=String.fromCharCode(b[i]);return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 function redirectUri(){return window.location.origin+window.location.pathname.replace(/\/$/,'')}
-async function handleOAuthCallback(){var code=new URLSearchParams(window.location.search).get('code');if(!code)return;window.history.replaceState({},document.title,window.location.pathname);var saved=null;try{saved=JSON.parse(localStorage.getItem('codyrpc-pkce')||'null');localStorage.removeItem('codyrpc-pkce')}catch(e){}if(!saved){log('OAuth callback received but no PKCE verifier was found. Authorize again.');return}log('Exchanging Discord authorization code…');try{var d=await adminPost('/api/discord/exchange',{code:code,codeVerifier:saved.v,redirectUri:saved.r});if(d.userId){cfg.userId=d.userId;persist()}log('Discord linked'+(d.user?' as '+d.user:'')+'. First sync: '+JSON.stringify(d.sync));alert('Discord linked! Your presence now updates automatically.')}catch(e){log('Discord link failed: '+e.message);alert('Discord link failed: '+e.message)}await loadDiscordStatus();pull()}
-function renderLists(){[['overrideList',cfg.overrides,'gameName','override'],['variableList',cfg.variables,'key','variable'],['presetList',cfg.presets,'name','preset']].forEach(function(info){var el=$(info[0]);el.textContent='';if(!info[1].length){var p=document.createElement('p');p.className='desc';p.textContent='Nothing added yet.';el.appendChild(p);return}info[1].forEach(function(item,i){var row=document.createElement('div');row.className='item';var text=document.createElement('div');var strong=document.createElement('strong');strong.textContent=item[info[2]]||'(unnamed)';var small=document.createElement('small');small.textContent=info[3]==='override'?'Details: '+(item.details||'—')+' · State: '+(item.state||'—'):info[3]==='variable'?item.value:'Click Apply to load this preset';text.appendChild(strong);text.appendChild(small);row.appendChild(text);if(info[3]==='preset'){var apply=document.createElement('button');apply.className='btn';apply.textContent='Apply';apply.onclick=function(){$('manualName').value=item.gameName;$('manualDetails').value=item.details;$('manualState').value=item.state;$('manualEnabled').checked=true;cfg.settings.manualOverrideEnabled=true;log('Loaded preset: '+item.name)};row.appendChild(apply)}var del=document.createElement('button');del.className='btn';del.textContent='Delete';del.onclick=function(){cfg[info[3]==='override'?'overrides':info[3]==='variable'?'variables':'presets'].splice(i,1);renderLists();log('Deleted '+info[3]);save(null)};row.appendChild(del);el.appendChild(row)})})}
+async function handleOAuthCallback(){
+  var p=new URLSearchParams(window.location.search);
+  var code=p.get('code'),state=p.get('state'),err=p.get('error');
+  if(!code&&!err)return false;
+  window.history.replaceState({},document.title,window.location.pathname);
+  var saved=null;try{saved=JSON.parse(localStorage.getItem(PKCE_KEY)||'null');localStorage.removeItem(PKCE_KEY)}catch(e){}
+  if(err){log('Discord authorization was cancelled or denied ('+err+').');$('generalMsg').textContent='Discord authorization was not completed.';return true}
+  if(!saved||!state||saved.s!==state){log('Sign-in could not be verified. Authorize again.');$('generalMsg').textContent='Sign-in could not be verified — please try again.';return true}
+  log('Signing you in…');
+  try{
+    var d=await api('/api/auth/discord',{method:'POST',anon:true,body:{code:code,codeVerifier:saved.v,redirectUri:saved.r}});
+    storeSession({token:d.token,userId:d.userId,user:d.user,at:Date.now()});
+    /* a leftover draft that belonged to someone else must never become this person's settings */
+    if(cfg.ownerId&&cfg.ownerId!==d.userId){cfg=clone(defaults);persist();fill()}
+    setAuthUi();
+    applyServer(d,true);
+    log('Signed in as '+(d.user||'your Discord account')+'. '+(d.fromKV?'Your saved settings were loaded.':'New account: add your Nintendo Account ID and press Save.'));
+    $('generalMsg').textContent=d.fromKV?'Signed in — your saved settings are loaded.':'Signed in! Add your Nintendo Account ID, then press Save.';
+  }catch(e){log('Sign-in failed: '+e.message);$('generalMsg').textContent='Sign-in failed: '+e.message}
+  return true;
+}
+function renderLists(){[['overrideList',cfg.overrides,'gameName','override'],['variableList',cfg.variables,'key','variable'],['presetList',cfg.presets,'name','preset']].forEach(function(info){var el=$(info[0]);el.textContent='';if(!info[1].length){var p=document.createElement('p');p.className='desc';p.textContent='Nothing added yet.';el.appendChild(p);return}info[1].forEach(function(item,i){var row=document.createElement('div');row.className='item';var text=document.createElement('div');var strong=document.createElement('strong');strong.textContent=item[info[2]]||'(unnamed)';var small=document.createElement('small');small.textContent=info[3]==='override'?'Details: '+(item.details||'—')+' · State: '+(item.state||'—'):info[3]==='variable'?item.value:'Click Apply to load this preset';text.appendChild(strong);text.appendChild(small);row.appendChild(text);if(info[3]==='preset'){var apply=document.createElement('button');apply.className='btn';apply.textContent='Apply';apply.onclick=function(){$('manualName').value=item.gameName;$('manualDetails').value=item.details;$('manualState').value=item.state;$('manualEnabled').checked=true;cfg.settings.manualOverrideEnabled=true;log('Loaded preset: '+item.name)};row.appendChild(apply)}var del=document.createElement('button');del.className='btn';del.textContent='Delete';del.onclick=function(){cfg[info[3]==='override'?'overrides':info[3]==='variable'?'variables':'presets'].splice(i,1);renderLists();persist();log('Deleted '+info[3]);save(null)};row.appendChild(del);el.appendChild(row)})})}
 function setPreview(p){presence=p;$('previewName').textContent=p.name||'Nintendo Switch';$('previewDetails').textContent=[p.details,p.state].filter(Boolean).join(' · ')||'No additional activity details';$('statusText').textContent=p.source||'Preview only — ready for Discord App sync';$('statusDot').className='dot '+(p.live?'good':'');$('lastRefresh').textContent=new Date().toLocaleTimeString();$('checkPresence').textContent=p.live?'Response received':'Preview only';$('checkPresenceDot').className='dot '+(p.live?'good':'');$('sourceStat').textContent=p.live?'nxapi':'Preview'}
-async function testWorker(){try{var r=await fetch(WORKER_URL+'/api/health');if(!r.ok)throw new Error('HTTP '+r.status);var d=await r.json();$('checkWorker').textContent=d.kvConfigured?'Connected · KV bound':'Connected · KV missing';$('checkWorkerDot').className='dot '+(d.kvConfigured?'good':'bad');$('connectionPill').textContent=d.kvConfigured?'Worker reachable':'Worker reachable · no KV';log('Worker connection succeeded: '+JSON.stringify(d));if(!d.tokenConfigured)log('Warning: CODYRPC_TOKEN secret is not set on the Worker, so saving to KV will fail.')}catch(e){$('checkWorker').textContent='Connection failed';$('checkWorkerDot').className='dot bad';$('connectionPill').textContent='Worker unreachable';log('Worker test failed: '+e.message+' (check deployment and CORS).')}}
-async function refresh(){try{var r=await fetch(WORKER_URL+'/api/presence?nsaId='+encodeURIComponent(cfg.nsaId));var d=await r.json();if(!r.ok||d.error)throw new Error(d.error||'HTTP '+r.status);var f=d.friend||{},pr=f.presence||{},g=pr.game||{};var name=g.name||'Nintendo Switch';if(cfg.settings.cleanGameNames)name=name.replace(/\s+for\s+(the\s+)?nintendo\s+switch(\s*2)?[.!]?\s*$/i,'').trim();var state=(pr.state||'OFFLINE').toUpperCase();var details=state==='OFFLINE'?(f.name||'Nintendo Switch')+' is offline':state==='INACTIVE'?'On the Home Menu':g.sysDescription||'';var play=Number(g.totalPlayTime)||0;if(cfg.settings.showTotalPlayTime&&g.name){details=details||Math.floor(play/60)+' hrs played'}setPreview({name:name,details:details,state:state==='OFFLINE'?'Not on Nintendo Switch':state==='INACTIVE'?'Away':state==='ACTIVE'?'Online':'Status received',source:'Nintendo presence source responded · active sync ready',live:true});log('Presence refreshed from Worker.')}catch(e){log('Presence refresh failed: '+e.message);$('statusText').textContent='Unable to load presence';$('statusDot').className='dot bad'}}
+async function testWorker(){try{var r=await fetch(WORKER_URL+'/api/health');if(!r.ok)throw new Error('HTTP '+r.status);var d=await r.json();$('checkWorker').textContent=d.kvConfigured?'Connected · KV bound':'Connected · KV missing';$('checkWorkerDot').className='dot '+(d.kvConfigured?'good':'bad');log('Worker connection succeeded: '+JSON.stringify(d))}catch(e){$('checkWorker').textContent='Connection failed';$('checkWorkerDot').className='dot bad';log('Worker test failed: '+e.message+' (check deployment and CORS).')}}
+async function refresh(){
+  if(!signedIn()){log('Authorize Discord first to preview your live status.');$('statusText').textContent='Authorize Discord to preview your status';$('statusDot').className='dot bad';return}
+  var nsa=($('nsaId').value||'').trim()||cfg.nsaId;
+  if(!nsa){log('Add your Nintendo Account (NSA) ID first.');$('statusText').textContent='Add your NSA ID first';$('statusDot').className='dot bad';return}
+  try{var d=await api('/api/presence?nsaId='+encodeURIComponent(nsa));if(d.error)throw new Error(d.error);var f=d.friend||{},pr=f.presence||{},g=pr.game||{};var name=g.name||'Nintendo Switch';if(cfg.settings.cleanGameNames)name=name.replace(/\s+for\s+(the\s+)?nintendo\s+switch(\s*2)?[.!]?\s*$/i,'').trim();var state=(pr.state||'OFFLINE').toUpperCase();var details=state==='OFFLINE'?(f.name||'Nintendo Switch')+' is offline':state==='INACTIVE'?'On the Home Menu':g.sysDescription||'';var play=Number(g.totalPlayTime)||0;if(cfg.settings.showTotalPlayTime&&g.name){details=details||Math.floor(play/60)+' hrs played'}setPreview({name:name,details:details,state:state==='OFFLINE'?'Not on Nintendo Switch':state==='INACTIVE'?'Away':state==='ACTIVE'?'Online':'Status received',source:'Nintendo presence source responded · active sync ready',live:true});log('Presence refreshed from Worker.')}catch(e){log('Presence refresh failed: '+e.message);$('statusText').textContent='Unable to load presence';$('statusDot').className='dot bad'}
+}
+function renderAdmin(d,token){
+  var el=$('adminList');el.textContent='';
+  if(!d.users.length){var p=document.createElement('p');p.className='desc';p.textContent='Nobody is linked yet.';el.appendChild(p);return}
+  d.users.forEach(function(u){
+    var row=document.createElement('div');row.className='item';var text=document.createElement('div');
+    var strong=document.createElement('strong');strong.textContent=(u.user||'(no name)')+' · '+u.userId;
+    var small=document.createElement('small');small.textContent='NSA ID: '+(u.nsaId||'not set')+' · '+(u.error?'error: '+u.error:u.activity?'showing '+u.activity:'no activity')+(u.lastUpdate?' · '+new Date(u.lastUpdate).toLocaleTimeString():'');
+    text.appendChild(strong);text.appendChild(small);row.appendChild(text);
+    var del=document.createElement('button');del.className='btn danger';del.textContent='Remove';
+    del.onclick=async function(){
+      if(!confirm('Remove '+(u.user||u.userId)+' and delete everything stored for them?'))return;
+      try{await api('/api/admin/remove',{method:'POST',token:token,body:{userId:u.userId}});log('Removed user '+u.userId);var nd=await api('/api/admin/users',{token:token});renderAdmin(nd,token);$('adminMsg').textContent=nd.count+' of '+nd.max+' spots used.'}catch(e){$('adminMsg').textContent=e.message}
+    };
+    row.appendChild(del);el.appendChild(row);
+  });
+}
 
 /* ---- Events ---- */
 document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('active',x===b)});document.querySelectorAll('.tabpage').forEach(function(x){x.classList.toggle('hidden',x.id!=='tab-'+b.dataset.tab)})})});
 $('saveGeneral').onclick=function(){gatherGeneral();save('generalMsg')};
 $('authDiscord').onclick=async function(){
-  gatherGeneral();persist();
-  if(!getToken()){alert('Paste your Worker admin token first. It is needed to link Discord.');$('adminToken').focus();return}
+  gatherGeneral();gatherPresence();persist(); /* keep anything already typed while we're away at Discord */
   var a=new Uint8Array(48);crypto.getRandomValues(a);var verifier=b64url(a);
+  var s=new Uint8Array(24);crypto.getRandomValues(s);var state=b64url(s);
   var challenge=b64url(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(verifier)));
-  try{localStorage.setItem('codyrpc-pkce',JSON.stringify({v:verifier,r:redirectUri()}))}catch(e){}
-  window.location.href='https://discord.com/oauth2/authorize?client_id='+encodeURIComponent(CLIENT_ID)+'&response_type=code&redirect_uri='+encodeURIComponent(redirectUri())+'&scope='+encodeURIComponent('openid sdk.social_layer_presence')+'&code_challenge='+challenge+'&code_challenge_method=S256';
+  try{localStorage.setItem(PKCE_KEY,JSON.stringify({v:verifier,r:redirectUri(),s:state}))}catch(e){}
+  window.location.href='https://discord.com/oauth2/authorize?client_id='+encodeURIComponent(CLIENT_ID)+'&response_type=code&redirect_uri='+encodeURIComponent(redirectUri())+'&scope='+encodeURIComponent('openid sdk.social_layer_presence')+'&state='+encodeURIComponent(state)+'&code_challenge='+challenge+'&code_challenge_method=S256';
 };
-$('syncNow').onclick=async function(){try{var d=await adminPost('/api/discord/sync',{userId: cfg.userId});log('Discord sync: '+JSON.stringify(d))}catch(e){log('Discord sync failed: '+e.message)}await loadDiscordStatus()};
-$('disconnectDiscord').onclick=async function(){if(!confirm('Disconnect Discord and clear your presence?'))return;try{await adminPost('/api/discord/disconnect',{userId: cfg.userId});cfg.userId='';persist();log('Discord disconnected.')}catch(e){log('Disconnect failed: '+e.message)}await loadDiscordStatus()};
+$('syncNow').onclick=async function(){try{var d=await api('/api/discord/sync',{method:'POST'});if(d.status)lastStatus=d.status;checkDiscordStatus();log('Discord sync: '+JSON.stringify({ok:d.ok,activity:d.activity,error:d.error}))}catch(e){log('Discord sync failed: '+e.message)}};
+$('signOut').onclick=async function(){try{await api('/api/auth/logout',{method:'POST'})}catch(e){}storeSession(null);lastStatus={linked:false};setAuthUi();log('Signed out of this browser. Your Discord status keeps updating in the cloud.')};
+$('disconnectDiscord').onclick=async function(){if(!confirm('Disconnect Discord and delete everything stored for you? Your status will stop updating.'))return;try{await api('/api/discord/disconnect',{method:'POST'});storeSession(null);cfg.ownerId='';persist();lastStatus={linked:false};setAuthUi();log('Discord disconnected and your data deleted.')}catch(e){log('Disconnect failed: '+e.message)}};
 $('savePresence').onclick=function(){gatherPresence();save('presenceMsg')};
-$('refreshBtn').onclick=refresh;$('testWorker').onclick=testWorker;$('pullConfig').onclick=pull;
+$('refreshBtn').onclick=refresh;$('testWorker').onclick=testWorker;
+$('pullConfig').onclick=async function(){await loadMe(true);log('Reloaded your settings from your account.')};
 $('clearBtn').onclick=function(){setPreview({name:'Nintendo Switch',details:'Activity preview cleared',source:'Preview only'});log('Cleared activity preview.')};
-$('exportBtn').onclick=function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(cfg,null,2)],{type:'application/json'}));a.download='codyrpc-web-config.json';a.click();URL.revokeObjectURL(a.href)};
+$('exportBtn').onclick=function(){var out=clone(cfg);delete out.ownerId;var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));a.download='codyrpc-web-config.json';a.click();URL.revokeObjectURL(a.href)};
 $('addOverride').onclick=function(){var n=$('ovGame').value.trim();if(!n)return;cfg.overrides.push({gameName:n,details:$('ovDetails').value.trim(),state:$('ovState').value.trim()});['ovGame','ovDetails','ovState'].forEach(function(k){$(k).value=''});renderLists();log('Added game override: '+n);save('overrideMsg')};
 $('addVariable').onclick=function(){var k=$('varKey').value.trim().replace(/[{}]/g,''),v=$('varValue').value.trim();if(!k||!v)return;cfg.variables.push({key:'{'+k+'}',value:v});$('varKey').value='';$('varValue').value='';renderLists();log('Added custom variable: '+k);save('overrideMsg')};
 $('savePreset').onclick=function(){var n=$('presetName').value.trim();if(!n){$('presetMsg').textContent='Enter a preset name.';return}cfg.presets.push({name:n,gameName:$('manualName').value,details:$('manualDetails').value,state:$('manualState').value});renderLists();log('Saved preset: '+n);save('presetMsg')};
@@ -172,13 +249,26 @@ $('saveManual').onclick=function(){cfg.settings.manualOverrideEnabled=$('manualE
 $('downloadLogs').onclick=function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([logs.join('\n')],{type:'text/plain'}));a.download='codyrpc-web-logs.txt';a.click();URL.revokeObjectURL(a.href)};
 $('clearLogs').onclick=function(){logs=[];$('logbox').textContent='Logs cleared.'};
 $('loadSample').onclick=function(){setPreview({name:'Splatoon 3',details:'Salmon Run · Sockeye Station',state:'Online',source:'Sample preview only',live:false});log('Loaded sample preview.')};
-$('resetSettings').onclick=function(){if(confirm('Reset CodyRPC Web settings saved in this browser? (KV is not changed.)')){localStorage.removeItem('codyrpc-web-config');read();fill();log('Local settings reset.')}};
+$('resetSettings').onclick=function(){if(confirm('Reset CodyRPC Web settings saved in this browser? (Your cloud settings are not changed.)')){var o=cfg.ownerId;localStorage.removeItem(CFG_KEY);read();cfg.ownerId=o;fill();log('Local settings reset.')}};
+$('adminLoad').onclick=async function(){
+  var t=$('adminToken').value.trim();if(!t){$('adminMsg').textContent='Enter the admin token.';return}
+  $('adminMsg').textContent='Loading…';
+  try{var d=await api('/api/admin/users',{token:t});try{sessionStorage.setItem('codyrpc-admin',t)}catch(e){}renderAdmin(d,t);$('adminMsg').textContent=d.count+' of '+d.max+' spots used.'}
+  catch(e){$('adminMsg').textContent=e.message}
+};
 
 /* Keep the two "manual presence" checkboxes (Presence tab + Manual presets tab) in sync */
 (function(){var a=document.querySelector('[data-setting="manualOverrideEnabled"]'),b=$('manualEnabled');a.addEventListener('change',function(){b.checked=a.checked});b.addEventListener('change',function(){a.checked=b.checked})})();
-read();fill();handleOAuthCallback().then(loadDiscordStatus);
+
+/* ---- Boot ---- */
+try{localStorage.removeItem('codyrpc-web-token')}catch(e){} /* the shared admin token is no longer used here */
+try{var at=sessionStorage.getItem('codyrpc-admin');if(at)$('adminToken').value=at}catch(e){}
+read();loadSession();fill();setAuthUi();
 setPreview({name:'Nintendo Switch',details:'Press Refresh status to load your presence.',source:'Waiting for refresh'});
 log('Dashboard ready.');
-testWorker().then(function(){ if(cfg.userId) pull(); });
+handleOAuthCallback().then(function(handled){if(!handled)return loadMe(true)});
+testWorker();
+/* keep the Discord status in the checklist fresh while this page is open */
+setInterval(function(){if(signedIn()&&!document.hidden)loadMe(false)},30000);
 })();
 </script></body></html>
